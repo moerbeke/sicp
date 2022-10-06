@@ -1,0 +1,25 @@
+(sine 12.15)
+(p (sine (/ 12.15 3.0)))
+(p (sine 4.5))
+(p (p (sine (/ 4.5 3.0))))
+(p (p (sine 1.5)))
+(p (p (p (sine (/ 1.5 3)))))
+(p (p (p (sine 0.5))))
+(p (p (p (p (sine (/ 0.5 3.0))))))
+(p (p (p (p (sine .166)))))
+(p (p (p (p (p (sine (/ .166 3.0)))))))
+(p (p (p (p (p (sine .055))))))
+(p (p (p (p (p .055)))))
+
+a. p is applied 5 times
+
+b. Order of growth in space and number of steps for (sine a)
+Order of growth = number of times p is applied
+p is applied n times, where n is the lowest integer that satisfies 3**n >= a/.1
+n = log_3(10*a)
+
+E.g. a = 12.15
+n = 4 => 3**4 = 81 < 121.5 = 10*a
+n = 5 => 3**5 = 243 > 121.5 = 10*a
+
+O(log(a))
